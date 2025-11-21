@@ -1,43 +1,64 @@
-/*
-function loopSimples(valor){
-    for(let i = 0; i < valor;i++) {
-        let matrizSimples = [];
-        matrizSimples.push(i);
-        console.log(matrizSimples[i])
-    }
-}
-//loop Simples(10)
 
-function loopComposto(valor){
-    let matrizComposta = [[],[],[],[]]
-    for (i in matrizComposta){
-        for (j in matrizComposta){
-            matrizComposta[i].push(j);
-        }
-        console.log(matrizComposta[i]);
-    }
-}
-//loopComposto(10);
+const tabelaVdd = [[true],[true],[true],[false],];
+const tabelaVdd2 = [[false],[false],[false],[true],];
 
-function loopCompostoV2(idade, nome){ 
-    class objetoSimples { 
-        constructor(idade, nome){ 
-            this.idade = idade
-            this.nome = nome
-        }
-    };  
+let tenhoEscopoBloco = "Bloco";
+const textoImutavel = "Texto";
 
-    let matrizCompostaV2 = [[],[],[],[],[],[],[],[]];
-    while (matrizCompostaV2) {
-        matrizCompostaV2[0].push(new objetoSimples(prompt("Digite a idade: "), prompt("Digite o nome: ")));
-            //for (i in matrizCompostaV2){
-            // matrizCompostaV2[i].push({objetoNome:prompt("Digite o nome do objeto: ")});
-            //matrizCompostaV2[i].push(i); 
-        console.log(matrizCompostaV2[0]);
-        if (matrizCompostaV2[0][0].idade !== undefined){ 
-            break;
+variavelHosting= 'Usando Hoisting';
+var variavelHosting;  
+console.log(variavelHosting);
+
+let variavelVazia = null;  
+let variavelSemValor;
+
+
+
+
+let variavelLet;
+variavelLet = 'Usando Let';
+console.log(variavelLet);
+
+
+exemploHoisting();  
+function exemploHoisting() {
+    console.log("texto")
+}
+
+function FuncaoEscopoLexico() {
+    console.log(tenhoEscopoBloco)
+    let variavelQueSai = 10;
+    
+    function escopoInterno() {
+        console.log(variavelQueSai);
     }
-            //console.log(matrizCompostaV2[i])
+    escopoInterno();
 }
+
+FuncaoEscopoLexico();
+
+//console.log(variavelQueSai)
+
+
+
+
+console.log(variavelVazia);
+console.log(variavelSemValor);
+
+
+if (!(variavelVazia && variavelSemValor)) {
+    console.log("negação de um falsy é true, negação ");
 }
-loopCompostoV2(10,"Thiago")*/
+
+
+if (tabelaVdd[0] || tabelaVdd2[0]) console.log("Operador OU");
+
+if (tabelaVdd[3] && tabelaVdd2[3]) console.log("Operador E");
+
+if (!(tabelaVdd[0] || tabelaVdd2[3])) console.log("Operador OU com negação");
+
+if (!(tabelaVdd[1] && tabelaVdd2[0])) console.log("Operador E com negação");
+
+if ((tabelaVdd[0] || tabelaVdd[3]) && (tabelaVdd[0] != tabelaVdd2[3])) console.log("XOR com operadores básicos");
+
+

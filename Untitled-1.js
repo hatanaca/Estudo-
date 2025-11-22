@@ -13,6 +13,51 @@ let variavelVazia = null;
 let variavelSemValor;
 
 
+function soma(a, b) {
+
+    return a + b;
+}
+
+let newArray = [2,3];
+
+
+console.log(soma(...newArray));
+
+
+class Status {
+    constructor(hp, mp, power, defense, atacke, speed) {
+        this.hp = hp;
+        this.mp = mp;
+        this.power = power;
+        this.defense = defense;
+        this.atacke = atacke;
+        this.speed = speed;
+    }
+}
+
+class Type {
+    constructor(element, category, affinity, weakness) {
+        //super(()=>{});
+        this.element = element;
+        this.category = category;
+        this.affinity = affinity;
+        this.weakness = weakness;
+    }
+}
+
+
+
+
+
+//const inimigo1 = new Enemy();
+//console.log(inimigo1);
+
+
+
+
+
+
+
 
 
 let variavelLet;
@@ -111,4 +156,7 @@ const Gabumon = new Digimon("Gabumon", "Rookie");
 
 Agumon.Atacke(Gabumon);
 Gabumon.Atacke(Agumon);
+
+
+
 

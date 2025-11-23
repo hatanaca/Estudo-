@@ -51,30 +51,35 @@ class Type extends Status {
         if(dataBaseTypes.includes(undefined || null)) {
             throw new Error("Parametros inválidos");
         }
-
         
-
-        switch (element) {
-            case "fire":
-                status[2] += 20; // power
-                status[4] += 10;
-                break;
-            case "water":
-                status[3] += 20;
-                status[5] += 10;
-                break;
-            case "earth":
-                status[3] += 15;
-                status[0] += 15;
-                break;
-            case "air":
-                status[5] += 20;
-                status[4] += 5;
-                break;
-            default:
-                throw new Error("Elemento inválido");
+        const modificadores = {
+            fire: [[], []],
+            water: [[], []],
+            earth: [[], []]
         }
 
+        // switch (element) {
+        //     case "fire":
+        //         status[2] += 20; // power
+        //         status[4] += 10;
+        //         break;
+        //     case "water":
+        //         status[3] += 20;
+        //         status[5] += 10;
+        //         break;
+        //     case "earth":
+        //         status[3] += 15;
+        //         status[0] += 15;
+        //         break;
+        //     case "air":
+        //         status[5] += 20;
+        //         status[4] += 5;
+        //         break;
+        //     default:
+        //         throw new Error("Elemento inválido");
+        // }
+
+        
         return console.log(element, category, affinity, weakness);
     }
 }

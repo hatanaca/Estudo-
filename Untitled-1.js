@@ -32,11 +32,14 @@ class Status {
     }
 }
 
+
+
+
 class Type extends Status {
     constructor(element, category, affinity, weakness) {
+        super(...Type.geradorDeStatusPeloType(element, category, affinity, weakness));
         
-        Type.geradorDeStatusPeloType(element, category, affinity, weakness);
-        super();
+        
         this.element = element;
         this.category = category;
         this.affinity = affinity;
@@ -45,46 +48,50 @@ class Type extends Status {
     }
     
     static geradorDeStatusPeloType(element, category, affinity, weakness) {
-        const status = [100, 100, 100, 100, 100, 100];
+        
+        const statusBase = [100, 100, 100, 100, 100, 100];
+        // hp, mp, power, defense, atacke, speed
+        
         const dataBaseTypes = [element, category, affinity, weakness];
 
-        if(dataBaseTypes.includes(undefined || null)) {
+        if(dataBaseTypes.includes(undefined ) || dataBaseTypes.includes(null)) {
             throw new Error("Parametros inválidos");
         }
         
-        const modificadores = {
-            fire: [[], []],
-            water: [[], []],
-            earth: [[], []]
+        const modificadorElemento = {
+            fire: [[2, 15], [5, 10]],
+            water: [[1, 20], [3, 20]],
+            earth: [[3, 40], [5, 5]]
         }
-
-        // switch (element) {
-        //     case "fire":
-        //         status[2] += 20; // power
-        //         status[4] += 10;
-        //         break;
-        //     case "water":
-        //         status[3] += 20;
-        //         status[5] += 10;
-        //         break;
-        //     case "earth":
-        //         status[3] += 15;
-        //         status[0] += 15;
-        //         break;
-        //     case "air":
-        //         status[5] += 20;
-        //         status[4] += 5;
-        //         break;
-        //     default:
-        //         throw new Error("Elemento inválido");
-        // }
-
         
-        return console.log(element, category, affinity, weakness);
+
+        const mods = modificadorElemento[element];
+
+        for (const [index, value] of mods ) {
+            statusBase[index] += value;
+        }
+        
+        return statusBase;
     }
 }
 
 
+const arrayDigimon = ["Agumon", "Gabumon", "Patamon", "Gatomon", "Tentomon", "Palmon", "Biyomon", "Gomamon", "Piyomon", "Tokomon"];
+
+const arrayDeTeste = [];
+for(let linha = 0; linha < 10; linha++) {
+    arrayDeTeste.push([]);
+    for(let coluna = 0; coluna < 10; coluna++){
+        arrayDeTeste[linha].push(arrayDigimon[coluna]);
+    }
+}
+console.log(arrayDeTeste);
+
+
+
+for (let [linha, coluna] of arrayDeTeste) {
+    console.log(arrayDeTeste[linha], arrayDeTeste[coluna]);
+}
 
 
 

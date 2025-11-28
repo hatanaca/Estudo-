@@ -20,7 +20,6 @@
 //let newArray = [2,3];
 //console.log(soma(...newArray));
 
-
 class Status {
     constructor(hp, mp, power, defense, atacke, speed) {
         this.hp = hp;
@@ -52,11 +51,16 @@ class Type {
             const statusBase = [100,100,100,100,100,100];
                 // hp, mp, power, defense, atacke, speed 
                 // 0    1   2       3       4       5
+
+            const [element, level, classe] = arguments;
+            
+            console.log(element + "Ola");
+            return element;
             const modificadores = {
                 element:{
-                    fire:[[],[]],
-                    water:[[],[]],
-                    earth:[[],[]]
+                    fire:[[2,30],[5,20]],
+                    water:[[1,30],[4,30]],
+                    earth:[[0,30],[3,30]]
                 },
                 level:{
                     bebe:[[],[]],

@@ -38,18 +38,38 @@ class Type {
 
     }
 
-    static construtorDeStatus(...dadosBrutos){
-        const statusBase = [100,100,100,100,100,100];
-
+    static construtorDeStatus(element, level, classe){
+        
         const verifyLogic = function(element, level, classe){
             if((typeof element !== "string" || typeof classe !== "string") ||
-             (typeof level !== "number" || (level > 100 || level < 1))){
-                throw new Error("Caracteristicas invalidaes");
+            (typeof level !== "number" || (level > 100 || level < 1))){
+                throw new Error("Caracteristicas invalidas");
             } 
             return true;
         }
-
-        if(verifyLogic(element,level,classe)) {console.log("")}
+        
+        if(verifyLogic(element,level,classe)) {
+            const statusBase = [100,100,100,100,100,100];
+                // hp, mp, power, defense, atacke, speed 
+                // 0    1   2       3       4       5
+            const modificadores = {
+                element:{
+                    fire:[[],[]],
+                    water:[[],[]],
+                    earth:[[],[]]
+                },
+                level:{
+                    bebe:[[],[]],
+                    novato:[[],[]],
+                    adulto:[[],[]]
+                },
+                classe:{
+                    guerreiro:[[],[]],
+                    mago:[[],[]],
+                    assassino:[[],[]]
+                }
+            }
+        }
     } 
 }
 
